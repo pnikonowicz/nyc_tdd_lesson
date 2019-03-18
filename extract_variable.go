@@ -9,28 +9,46 @@ import (
 //TODO: Tests dont pass
 
 
-//For Page 124 Introduce Explaining Variable
-func Before(platform, browser string, resize int, wasInitialized func() bool) bool {
+//From Page 124 Introduce Explaining Variable
+func Before(platform, browser string, resize int, wasInitialized bool) bool {
 	if Compare(ToUpper(platform), "MAC") > -1 &&
 		Compare(ToUpper(browser), "IE") > -1 &&
-		wasInitialized() && resize > 0 {
+		wasInitialized && resize > 0 {
 		return true
 	}
 	return false
 }
 
-func After(platform, browser string, resize int, wasInitialized func() bool) bool {
+func After(platform, browser string, resize int, wasInitialized bool) bool {
 	isMacOs := Compare(ToUpper(platform), "MAC") > -1
 	isIEBrowser := Compare(ToUpper(browser), "IE") > -1
 	wasResized := resize > 0
 
 	if isMacOs &&
 		isIEBrowser &&
-		wasInitialized() &&
+		wasInitialized &&
 		wasResized {
 		return true
 	}
 	return false
+}
+
+func Excercise(item Item) bool {
+	if g.Items[i].Quality < 50 {
+				g.Items[i].Quality = g.Items[i].Quality + 1
+				if g.Items[i].Name == "Backstage passes to a TAFKAL80ETC concert" {
+					if g.Items[i].SellIn < 11 {
+						if g.Items[i].Quality < 50 {
+							g.Items[i].Quality = g.Items[i].Quality + 1
+						}
+					}
+					if g.Items[i].SellIn < 6 {
+						if g.Items[i].Quality < 50 {
+							g.Items[i].Quality = g.Items[i].Quality + 1
+						}
+					}
+				}
+			}
 }
 
 func assert(expected bool, actual bool) {

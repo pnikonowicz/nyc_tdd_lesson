@@ -5,6 +5,10 @@ import (
 	. "strings"
 )
 
+//TODO: Student work example
+//TODO: Tests dont pass
+
+
 //For Page 124 Introduce Explaining Variable
 func Before(platform, browser string, resize int, wasInitialized func() bool) bool {
 	if Compare(ToUpper(platform), "MAC") > -1 &&

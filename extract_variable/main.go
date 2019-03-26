@@ -5,9 +5,7 @@ import (
 	. "strings"
 )
 
-//TODO: Student work example
 //TODO: Tests dont pass
-
 
 //From Page 124 Introduce Explaining Variable
 func Before(platform, browser string, resize int, wasInitialized bool) bool {
@@ -33,22 +31,29 @@ func After(platform, browser string, resize int, wasInitialized bool) bool {
 	return false
 }
 
-func Excercise(item Item) bool {
-	if g.Items[i].Quality < 50 {
-				g.Items[i].Quality = g.Items[i].Quality + 1
-				if g.Items[i].Name == "Backstage passes to a TAFKAL80ETC concert" {
-					if g.Items[i].SellIn < 11 {
-						if g.Items[i].Quality < 50 {
-							g.Items[i].Quality = g.Items[i].Quality + 1
-						}
-					}
-					if g.Items[i].SellIn < 6 {
-						if g.Items[i].Quality < 50 {
-							g.Items[i].Quality = g.Items[i].Quality + 1
-						}
-					}
+type Item struct {
+	Quality int
+	Name    string
+	SellIn  int
+}
+
+func StudentExcercise(item Item) Item {
+	if item.Quality < 50 {
+		item.Quality = item.Quality + 1
+		if item.Name == "Backstage passes to a TAFKAL80ETC concert" {
+			if item.SellIn < 11 {
+				if item.Quality < 50 {
+					item.Quality = item.Quality + 1
 				}
 			}
+			if item.SellIn < 6 {
+				if item.Quality < 50 {
+					item.Quality = item.Quality + 1
+				}
+			}
+		}
+	}
+	return item
 }
 
 func assert(expected bool, actual bool) {
@@ -57,16 +62,17 @@ func assert(expected bool, actual bool) {
 	}
 }
 
-func test(testFunction func(string, string, int, func() bool) bool) {
+func test(name string, testFunction func(string, string, int, bool) bool) {
+	fmt.Println(fmt.Sprintf("Running Suite: %s", name))
 	isMacOs := "MAC"
 	isIeBrowser := "IE"
 	wasResized := 1 // number > 0
-	isInitialized := func() bool { return true }
+	isInitialized := true
 
 	notMacOs := "not mac"
 	notIeBrowser := "not ie"
 	notResized := -1 // number <= 0
-	notInitialized := func() bool { return false }
+	notInitialized := false
 
 	assert(true, testFunction(isMacOs, isIeBrowser, wasResized, isInitialized))
 	assert(false, testFunction(notMacOs, isIeBrowser, wasResized, isInitialized))
@@ -76,9 +82,6 @@ func test(testFunction func(string, string, int, func() bool) bool) {
 }
 
 func main() {
-	fmt.Println("Running Suite: Before")
-	test(Before)
-
-	fmt.Println("Running Suite: After")
-	test(After)
+	test("Before", Before)
+	test("After", After)
 }

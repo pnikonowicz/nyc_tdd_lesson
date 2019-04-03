@@ -3,53 +3,55 @@
 
 
 //Before
-stuct A {
-  methodA()
-  methodB()
+type A struct {
 }
 
-(A) methodA() string {
-  return "A" + methodB()
+func (a A) funcA() string {
+  return "A" + a.funcB()
 }
 
-(A) methodB() string {
-  return "B";
+func (A) funcB() string {
+  return "B"
 }
 
 struct B {
-  whatever()
 }
 
 //After
 stuct A {
-  methodA()
 }
 
 struct B {
-  whatever()
-  methodB()
 }
 
+func (a A) funcA() string {
+  b := B{}
+  return "A" + b.funcB()
+}
+
+func (B) funcB() string {
+  return "B"
+}
 
 
 //Excercise
-stuct Excercise_A {
-  overdraftCharge()
-  isOverdrawn()
+struct Excercise {
+  charge int
+  balance int
 }
 
-(A) methodA() string, err {
-  if(isOverdrawn()) {
+func (a A) methodA() string, err {
+  if(a.isOverdrawn()) {
     return nil, fmt.Errorf("isOverdrawn")
   }
-  return "Cash Money"
+  return "Cash Money", nil
 }
 
-(A) isOverdrawn(accountId int) string {
-  overdrawn = accountId == 3
+func (a A) isOverdrawn() bool {
+  overdrawn := a.charge > a.balance
   return overdrawn
 }
 
-struct OverdrawnService {
+type OverdrawnService struct {
 
 }

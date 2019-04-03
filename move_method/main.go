@@ -1,7 +1,3 @@
-//TODO: Source Example
-//TODO: Student Excercise
-
-
 //Before
 type A struct {
 }

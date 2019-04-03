@@ -1,42 +1,35 @@
-//TODO: Teacher Example
-//TODO: Student Excercise
-
-//From p. 117
-
-
-//Before:
-int getRating() {
-  return moreThanFiveLateDeliveries() ? 2 : 1;
+func Before(numberOfLateDeliveries int) int {
+    return moreThanFiveLateDeliveries(numberOfLateDeliveries) ? 2 : 1
 }
 
-bool moreThanFiveLateDeliveries() {
+func moreThanFiveLateDeliveries(numberOfLateDeliveries int) bool {
   return numberOfLateDeliveries > 5;
 }
 
-//After:
-
-int getRating() {
-  return (numberOfLateDeliveries > 5) ? 2 : 1
+func After(numberOfLateDeliveries int) int {
+    return (numberOfLateDeliveries > 5) ? 2 : 1
 }
 
-
-//Excercise:
-int getTotal(start int) {
-  addToTotal = func(a,b) {
-    CreateAdder = func() {
-      return func(a,b) {
-        return a+b
-      }
+func Excercise(start int) int {
+  CreateAdder := func() func(int,int) int {
+    return func(a,b) int {
+      return a+b
     }
+  }
+  
+  addToTotal := func(a,b int) int {
     adder = CreateAdder()
-    adder(a,b)
+    return adder(a,b)
   }
   
-  subtractFromTotal = func(a,b) {
-    return addToTotal(a, b*-1)
+  subtractFromTotal = func(a,b int) int{
+    adder = CreateAdder()
+    return adder(a, b*-1)
   }
   
-  newTotal = start
+  newTotal := start
   newTotal = addToTotal(newTotal, 2)
   newTotal = subtractFromTotal(newTotal, 1)
+  
+  return newTotal
 }

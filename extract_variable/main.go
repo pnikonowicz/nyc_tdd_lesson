@@ -82,8 +82,8 @@ func test(name string, testFunction func(string, string, int, bool) bool) {
 }
 
 func excercise() {
-	assertItemEquals := func(description string, expected Item, actual Item) {
-		actual = Example(actual)
+	assertItemEquals := func(description string, expected Item, input Item) {
+		actual = Example(input)
 		if expected.Quality != actual.Quality {
 			panic
 		}
@@ -97,9 +97,16 @@ func excercise() {
 		}
 	}
 	
-	itemQualityLessThanFifty := func(i *Item) {i.ItemQuality= 3}
-	itemQualityGreaterThanFifty := func(i *Item) {i.ItemQuality= 52}
-	itemNameNotBackstage = func(i *Item) {i.Name = "not backstage"}
+	initItem := func() Item {Item{}}
+	itemQualityLessThanFifty := func(i *Item) Item {i.ItemQuality= 3; return i}
+	itemQualityGreaterThanFifty := func(i *Item) Item {i.ItemQuality= 52; return i}
+	itemNameNotBackstage = func(i *Item) Item {i.Name = "not backstage"; return i}
+	itemNameIsBackstage = func(i *Item) Item {i.Name = "backstage"; return i}
+	itemSellinLessThanSix = func(i *Item) Item {i.SellIn = 2; return i}
+	itemSellinBetweenSixAndEleven = func(i *Item) Item {i.SellIn = 8; return i}
+	itemLargeSellIn = func(i *Item) Item {i.SellIn = 20; return i}
+	incrementQualityTwice = func(i *Item) Item {i.Quality = i.Quality+2; return i}
+	incrementQualityOnce = func(i *Item) Item {i.Quality = i.Quality+1; return i}
 	
 	assertEquals("does nothing if item quality less than fifty", 
 		     itemQualityLessThanFifty(&Item{}), 
@@ -107,6 +114,16 @@ func excercise() {
 	assertEquals("does nothing if not backstage",
 		     itemNameNotBackstage(itemQualityGreaterThanFifty(&Item{})), 
 		     itemNameNotBackstage(itemQualityGreaterThanFifty(&Item{}))
+	assertEquals("does nothing if backstage but sell in too large",
+		     itemLargeSellIn(itemNameNotBackstage(itemQualityGreaterThanFifty(&Item{}))), 
+		     itemLargeSellIn(itemQualityGreaterThanFifty(&Item{}))
+	assertEquals("increments quality twice",
+		     incrementQualityTwice(itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(&Item{})))), 
+		     itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(&Item{})))
+	assertEquals("increments quality once",
+		     incrementQualityOnce(itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(&Item{})))), 
+		     itemSellinBetweenSixAndEleven(itemNameIsBackstage(itemQualityLessThanFifty(&Item{})))
+		     
 }
 
 func main() {

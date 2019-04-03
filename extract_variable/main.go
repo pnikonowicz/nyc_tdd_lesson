@@ -37,10 +37,10 @@ type Item struct {
 	SellIn  int
 }
 
-func StudentExcercise(item Item) Item {
+func Excercise(item *Item) Item {
 	if item.Quality < 50 {
 		item.Quality = item.Quality + 1
-		if item.Name == "Backstage passes to a TAFKAL80ETC concert" {
+		if item.Name == "backstage" {
 			if item.SellIn < 11 {
 				if item.Quality < 50 {
 					item.Quality = item.Quality + 1
@@ -81,7 +81,36 @@ func test(name string, testFunction func(string, string, int, bool) bool) {
 	assert(false, testFunction(isMacOs, isIeBrowser, wasResized, notInitialized))
 }
 
+func excercise() {
+	assertItemEquals := func(description string, expected Item, actual Item) {
+		actual = Example(actual)
+		if expected.Quality != actual.Quality {
+			panic
+		}
+		
+		if expected.Name != actual.Name {
+			panic
+		}
+		
+		if expected.SellIn != actual.SellIn {
+			panic
+		}
+	}
+	
+	itemQualityLessThanFifty := func(i *Item) {i.ItemQuality= 3}
+	itemQualityGreaterThanFifty := func(i *Item) {i.ItemQuality= 52}
+	itemNameNotBackstage = func(i *Item) {i.Name = "not backstage"}
+	
+	assertEquals("does nothing if item quality less than fifty", 
+		     itemQualityLessThanFifty(&Item{}), 
+		     itemQualityLessThanFifty(&Item{})
+	assertEquals("does nothing if not backstage",
+		     itemNameNotBackstage(itemQualityGreaterThanFifty(&Item{})), 
+		     itemNameNotBackstage(itemQualityGreaterThanFifty(&Item{}))
+}
+
 func main() {
 	test("Before", Before)
 	test("After", After)
+	excercise()
 }

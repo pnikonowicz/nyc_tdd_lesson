@@ -37,7 +37,6 @@ type Item struct {
 
 func Excercise(item Item) Item {
 	if item.Quality < 50 {
-		item.Quality = item.Quality + 1
 		if item.Name == "backstage" {
 			if item.SellIn < 11 {
 				if item.Quality < 50 {
@@ -72,62 +71,62 @@ func test(name string, testFunction func(string, string, int, bool) bool) {
 	notResized := -1 // number <= 0
 	notInitialized := false
 
-	assert("1", true, testFunction(isMacOs, isIeBrowser, wasResized, isInitialized))
-	assert("2", false, testFunction(notMacOs, isIeBrowser, wasResized, isInitialized))
-	assert("3", false, testFunction(isMacOs, notIeBrowser, wasResized, isInitialized))
-	assert("4", false, testFunction(isMacOs, isIeBrowser, notResized, isInitialized))
-	assert("5", false, testFunction(isMacOs, isIeBrowser, wasResized, notInitialized))
+	assert("success case", true, testFunction(isMacOs, isIeBrowser, wasResized, isInitialized))
+	assert("false if not mac", false, testFunction(notMacOs, isIeBrowser, wasResized, isInitialized))
+	assert("false if not ie", false, testFunction(isMacOs, notIeBrowser, wasResized, isInitialized))
+	assert("false if not resize", false, testFunction(isMacOs, isIeBrowser, notResized, isInitialized))
+	assert("false if not initialized", false, testFunction(isMacOs, isIeBrowser, wasResized, notInitialized))
 }
 
-func excercise() {
+func testExcercise() {
 	fmt.Println("Suite: Excercise")
 	assertEquals := func(description string, expected Item, input Item) {
 		actual := Excercise(input)
-		fail := func() {panic(fmt.Sprintf("%s\nexpected: %v actual: %v", description, expected, actual))}
+		fail := func(check string) {
+			panic(fmt.Sprintf("%s: %s\nexpected: %v actual: %v", check, description, expected, actual))
+		}
 
 		if expected.Quality != actual.Quality {
-			fail()
+			fail("Quality")
 		}
 
 		if expected.Name != actual.Name {
-			fail()
+			fail("Name")
 		}
 
 		if expected.SellIn != actual.SellIn {
-			fail()
+			fail("SellIn")
 		}
 	}
-	
-	itemQualityLessThanFifty := func(i Item) Item {i.Quality= 3; return i}
-	itemQualityGreaterThanFifty := func(i Item) Item {i.Quality= 52; return i}
-	itemNameNotBackstage := func(i Item) Item {i.Name = "not backstage"; return i}
-	itemNameIsBackstage := func(i Item) Item {i.Name = "backstage"; return i}
-	itemSellinLessThanSix := func(i Item) Item {i.SellIn = 2; return i}
-	itemSellinBetweenSixAndEleven := func(i Item) Item {i.SellIn = 8; return i}
-	itemLargeSellIn := func(i Item) Item {i.SellIn = 20; return i}
-	incrementQualityTwice := func(i Item) Item {i.Quality = i.Quality+2; return i}
-	incrementQualityOnce := func(i Item) Item {i.Quality = i.Quality+1; return i}
-	
-	assertEquals("does nothing if item quality less than fifty", 
-		     itemQualityLessThanFifty(Item{}),
-		     itemQualityLessThanFifty(Item{}))
-	assertEquals("does nothing if not backstage",
-		     itemNameNotBackstage(itemQualityGreaterThanFifty(Item{})),
-		     itemNameNotBackstage(itemQualityGreaterThanFifty(Item{})))
-	assertEquals("does nothing if backstage but sell in too large",
-		     itemLargeSellIn(itemNameNotBackstage(itemQualityGreaterThanFifty(Item{}))),
-		     itemLargeSellIn(itemQualityGreaterThanFifty(Item{})))
-	assertEquals("increments quality twice",
-		     incrementQualityTwice(itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))),
-		     itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(Item{}))))
-	assertEquals("increments quality once",
-		     incrementQualityOnce(itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))),
-		     itemSellinBetweenSixAndEleven(itemNameIsBackstage(itemQualityLessThanFifty(Item{}))))
-		     
+
+	itemQualityLessThanFifty := func(i Item) Item { i.Quality = 3; return i }
+	itemQualityGreaterThanFifty := func(i Item) Item { i.Quality = 52; return i }
+	itemNameNotBackstage := func(i Item) Item { i.Name = "not backstage"; return i }
+	itemNameIsBackstage := func(i Item) Item { i.Name = "backstage"; return i }
+	itemSellinLessThanSix := func(i Item) Item { i.SellIn = 2; return i }
+	itemSellinBetweenSixAndEleven := func(i Item) Item { i.SellIn = 8; return i }
+	itemLargeSellIn := func(i Item) Item { i.SellIn = 20; return i }
+	incrementQualityTwice := func(i Item) Item { i.Quality = i.Quality + 2; return i }
+	incrementQualityOnce := func(i Item) Item { i.Quality = i.Quality + 1; return i }
+
+	item := itemQualityGreaterThanFifty(Item{})
+	assertEquals("does nothing if item quality greater than fifty", item, item)
+
+	item = itemNameNotBackstage(itemQualityGreaterThanFifty(Item{}))
+	assertEquals("does nothing if not backstage",item,  item)
+
+	item = itemLargeSellIn(itemLargeSellIn(itemNameIsBackstage(itemQualityLessThanFifty(Item{}))))
+	assertEquals("does nothing if backstage but sell in too large", item, item)
+
+	item = itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))
+	assertEquals("increments quality twice", incrementQualityTwice(item), item)
+
+	item = itemSellinBetweenSixAndEleven(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))
+	assertEquals("increments quality once", incrementQualityOnce(item), item)
 }
 
 func main() {
 	test("Before", Before)
 	test("After", After)
-	excercise()
+	testExcercise()
 }

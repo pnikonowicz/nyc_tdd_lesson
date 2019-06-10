@@ -2,64 +2,66 @@ Question: what should be done to optimize pairing rotation? Should the class dec
 https://www.ascd.org/ASCD/pdf/books/mctighe2004_intro.pdf
 https://images.template.net/wp-content/uploads/2016/05/06055421/Music-Lesson-Plan-Template-Word-2010-Free-Download.jpg
 
-Problem
+# Problem
 It has been observed that TDD proficiency and level of adherence could use improvement. 
 
-Objective
+# Objective
 Increase TDD proficiency across the NYC office via a course. Progress measured via feedback at the end of class. Another after a 3 month period. Attendance will be voluntary. 
 Students will self assess: <link for feedback>
 
 
 
-Requirements - Instructor
+# Requirements - Instructor
 a projector or tv, internet for github, and send copies of relevant pages for reference from Martin Fowlers “Refactoring”  to students https://books.google.com/books/about/Refactoring.html?id=HmrDHwgkbPsC&printsec=frontcover&source=kp_read_button#v=onepage&q&f=false
 
-Requirements - Student
+# Requirements - Student
 A computer with golang (current version). Read over materials sent by instructor. 
 
 It is ok to use an IDE, but you are not allowed to use the refactoring plugins (even rename!)
 
-Test Coverage
+# Test Coverage
 Ask these questions to the group. Open discussion as there is no “correct” answer.
 Try to cover topics of feature testing, behaviour testing, and unit testing. As well as the pros and cons of each. Lots of teams define these testing categories differently, that is the takeaway from this discussion. 
 
 
-How to measure test coverage?
+## How to measure test coverage?
 Cyclomatic complexity - The sad truth is that there probably is no single simple measurement that can express an abstract concept such as complexity in a single number. But this does not imply that we cannot measure and control complexity. It just has to be done with multiple metrics and checks that cover the various aspects of complexity. - https://www.cqse.eu/en/blog/mccabe-cyclomatic-complexity/
 Test coverage tools - 
 
 For example, the following simple Java code snippet is reported with complexity 2 by the Eclipse Metrics Plugin, with 4 by GMetrics, and with complexity 5 by SonarQube:
+```
 int foo (int a, int b) {
         if (a > 17 && b < 42 && a+b < 55) {
                 return 1;
         }
         return 2;
 } - https://www.cqse.eu/en/blog/mccabe-cyclomatic-complexity/
+```
 
-Is this code fully tested? 
+## Is this code fully tested? 
 Strive for 100% code coverage? - this is highly debatable
 How many tests is enough? - this is highly debatable
 
-Refactoring
+# Refactoring
 
-What is refactoring? 
+## What is refactoring? 
 Code refactoring is the process of restructuring existing computer code—changing the factoring—without changing its external behavior. - https://en.wikipedia.org/wiki/Code_refactoring
 
-Why refactor? 
+## Why refactor? 
 Refactoring is usually motivated by noticing a code smell.[2] For example, the method at hand may be very long, or it may be a near duplicate of another nearby method. Once recognized, such problems can be addressed by refactoring the source code, or transforming it into a new form that behaves the same as before but that no longer "smells". - https://en.wikipedia.org/wiki/Code_refactoring
 
 
-When to do it? 
+## When to do it? 
    When It is easier to extend the capabilities of the application if it uses recognizable design patterns, and it provides some flexibility where none before may have existed. https://en.wikipedia.org/wiki/Code_refactoring
 
-When is refactoring risky?
+## When is refactoring risky?
    When there are no tests
 
 Talk about testing frameworks. How many have everyone used. What are common functions of testing frameworks (ie assertEquals, assertTrue, assertThat(x, Is(anything())) etc..)
 
 
-First test framework
-What do we really need in a testing framework?
+# First test framework
+## What do we really need in a testing framework?
   A function, maybe a print statement
 
 Have students write Assert for equality
@@ -72,7 +74,7 @@ Rotate pairs.
 
 
 
-Plan
+# Plan
 Introduce technique by summarize from book. The book is quite detailed, put it into your own words. 
 Demonstrate with an example in front of class. 
 Give class their own example to try with their pair. Rotate pairs after every technique.
@@ -105,7 +107,7 @@ Refactor gilded rose (change pairs every X minutes) https://github.com/pnikonowi
 
 
 
-Techniques
+# Techniques
 
 Extract Variable: (p 124)
 https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable.go
@@ -131,7 +133,7 @@ In Student excercise, Talk about how there might be feature envy, how the overdr
 
 
 
-Email Template:
+# Email Template:
 
 Hello and thank you for your interest in attending NYC working in legacy systems TDD workshop. This course will help prepare you for working in legacy code that has no tests. The format will basically be, write tests, ensure tests pass, then refactor. The refactor part is what we will be focusing on. We will be using the refactoring methods outlined in Martin Fowler’s “Refactoring” book. We will be learning very small refactoring steps. In order to get the most out of this course, please do not use any IDE refactoring tools. Not all languages have these tools, and sometimes with those that do, they don’t always work (I’m looking at you, scripting languages). 
 

@@ -139,11 +139,11 @@ Hello and thank you for your interest in attending NYC working in legacy systems
 
 There are a couple things that you should check out before showing up. 
 
-Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” (attached)
+1. Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” (attached)
 
-     2.   Make sure your laptop has Go installed.The version will not matter for what we are going to be doing. 
+2.   Make sure your laptop has Go installed.The version will not matter for what we are going to be doing. 
 
-    3.   You do not need an IDE, but you can use one. (no using refactoring tools please)
+3.   You do not need an IDE, but you can use one. (no using refactoring tools please)
 
  
 

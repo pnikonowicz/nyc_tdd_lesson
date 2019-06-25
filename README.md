@@ -135,28 +135,31 @@ In Student excercise, Talk about how there might be feature envy, how the overdr
 
 # Email Template:
 
-Hello and thank you for your interest in attending NYC working in legacy systems TDD workshop. This course will help prepare you for working in legacy code that has no tests. The format will basically be, write tests, ensure tests pass, then refactor. The refactor part is what we will be focusing on. We will be using the refactoring methods outlined in Martin Fowler’s “Refactoring” book. We will be learning very small refactoring steps. In order to get the most out of this course, please do not use any IDE refactoring tools. Not all languages have these tools, and sometimes with those that do, they don’t always work (I’m looking at you, scripting languages). 
+Hello and thank you for your interest in attending NYC working in legacy systems TDD workshop. This course will help prepare you for working in legacy code that has no tests. The format will basically be, write tests, ensure tests pass, then refactor. The refactor part is what we will be focusing on. We will be using the refactoring methods outlined in Martin Fowler’s “Refactoring” book. We will be learning very small refactoring steps. 
 
-There are a couple things that you should check out before showing up. 
+In order to get the most out of this course, please do not use any IDE refactoring tools. 
 
-1. Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” (attached)
+There are a couple things that you should check out before showing up.
 
-2.   Make sure your laptop has Go installed.The version will not matter for what we are going to be doing. 
+Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” (attached)
 
-3.   You do not need an IDE, but you can use one. (no using refactoring tools please)
+Make sure your laptop has Go installed.The version will not matter for what we are going to be doing.
 
- 
+You do not need an IDE, but you can use one. (no using refactoring tools please)
 
+Generally, the structure for this course will be:
 
-Generally, the structure for this course will be: 
+Intro general questions and warming up (30 min) 
 
-Intro general questions and warming up (30 min)
-I will explain the refactoring technique. (15-30 min)
-We will break off into pairs (5 min)
-With your pair, you will create your own custom test framework (30 min) and begin to write tests for the example function I will provide you. 
-Rotate Pairs (5 min)
-Refactor / continue to write tests if needed (15 min)
+I will explain the refactoring technique. (15-30 min) 
 
+We will break off into pairs (5 min) 
+
+With your pair, you will create your own custom test framework and begin to write tests for the example function I will provide you.(30 min) 
+
+Rotate Pairs (5 min) Refactor / continue to write tests if needed (15 min)
+
+Feedback/Retrospective (15 min)
 
 Looking forward to seeing you!
 

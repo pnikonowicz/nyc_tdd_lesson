@@ -141,7 +141,9 @@ In order to get the most out of this course, please do not use any IDE refactori
 
 There are a couple things that you should check out before showing up.
 
-Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” (attached)
+Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” links here:
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_1.JPG
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_2.JPG
 
 Make sure your laptop has Go installed.The version will not matter for what we are going to be doing.
 
@@ -162,10 +164,4 @@ Rotate Pairs (5 min) Refactor / continue to write tests if needed (15 min)
 Feedback/Retrospective (15 min)
 
 Looking forward to seeing you!
-
-================
-Attachments:
-
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_1.JPG
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_2.JPG
 

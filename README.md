@@ -43,6 +43,10 @@ Strive for 100% code coverage? - this is highly debatable
 
 How many tests is enough? - this is highly debatable
 
+## class participation
+pass around pen and paper. show the before example from the book for extract variable and ask class
+how complex it is. emphasize that everyone's answer is different, and that no one's answer is incorrect. 
+
 # Refactoring
 
 ## What is refactoring? 
@@ -87,7 +91,6 @@ Write tests
 Comment code and ensure tests fail
 Refactor using the technique. 
 
-
 Techniques: (4 hours) 
 Extract variable (do this one first because it is very easy)
 Inline Method
@@ -103,9 +106,23 @@ Using techniques (2-4 hours)
 Refactor gilded rose (change pairs every X minutes) https://github.com/pnikonowicz/gildedrose
  
 
+# Plan v2
+Refactor Intro - 10min
 
+Write test framework - 1hr
 
+discuss how many tests to write - 15min
 
+demonstrate extract variable - 10min
+
+have class work on extract variable excercise
+
+## Notes
+
+if class is falling behind, put up code in projector and have everyone practice refactoring
+if class completes excercise, have them paste their refactored code in slack for everyone to see and ensure
+tests still pass against teacher's tests. as long as we pair switch one time, there should be no feeling 
+of ownership and therefore no hurt feelings. (hopefully)
 
 
 # Techniques

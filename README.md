@@ -128,20 +128,19 @@ of ownership and therefore no hurt feelings. (hopefully)
 # Techniques
 
 Extract Variable: (p 124)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable.go
-
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/main.go
 
 Extract Method: (p 110)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_method.go
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_method/main.go
 
 Inline Function: (p 117)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/inline_method.go
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/inline_method/main.go
 
 In Student excercise, pay attention to subtractFromTotal. Point out that it is coupled to AddToTotal and cannot be moved withouth moving add to total. 
 
 
 Move Function: (p 117)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/move_method.go
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/move_method/main.go
 
 In Student excercise, Talk about how there might be feature envy, how the overdraft function belongs in the service. 
 

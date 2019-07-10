@@ -149,19 +149,5 @@ Make sure your laptop has Go installed.The version will not matter for what we a
 
 You do not need an IDE, but you can use one. (no using refactoring tools please)
 
-Generally, the structure for this course will be:
-
-Intro general questions and warming up (30 min) 
-
-I will explain the refactoring technique. (15-30 min) 
-
-We will break off into pairs (5 min) 
-
-With your pair, you will create your own custom test framework and begin to write tests for the example function I will provide you.(30 min) 
-
-Rotate Pairs (5 min) Refactor / continue to write tests if needed (15 min)
-
-Feedback/Retrospective (15 min)
-
 Looking forward to seeing you!
 

@@ -1,4 +1,3 @@
-Question: what should be done to optimize pairing rotation? Should the class decide?
 https://www.ascd.org/ASCD/pdf/books/mctighe2004_intro.pdf
 https://images.template.net/wp-content/uploads/2016/05/06055421/Music-Lesson-Plan-Template-Word-2010-Free-Download.jpg
 

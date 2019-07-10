@@ -40,6 +40,7 @@ int foo (int a, int b) {
 
 ## Is this code fully tested? 
 Strive for 100% code coverage? - this is highly debatable
+
 How many tests is enough? - this is highly debatable
 
 # Refactoring

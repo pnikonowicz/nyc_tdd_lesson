@@ -101,6 +101,7 @@ func testExcercise() {
 
 	itemQualityLessThanFifty := func(i Item) Item { i.Quality = 3; return i }
 	itemQualityGreaterThanFifty := func(i Item) Item { i.Quality = 52; return i }
+	itemQualityRightAroundFifty := func(i Item) Item { i.Quality = 49; return i }
 	itemNameNotBackstage := func(i Item) Item { i.Name = "not backstage"; return i }
 	itemNameIsBackstage := func(i Item) Item { i.Name = "backstage"; return i }
 	itemSellinLessThanSix := func(i Item) Item { i.SellIn = 2; return i }
@@ -127,6 +128,9 @@ func testExcercise() {
 
 	item = itemSellinBetweenSixAndEleven(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))
 	assertEquals("increments quality once", incrementQualityOnce(item), item)
+
+	item = itemSellinLessThanSix(itemNameIsBackstage(itemQualityRightAroundFifty(Item{})))
+	assertEquals("quality right around fifty. boundry test.", incrementQualityOnce(item), item)
 }
 
 func main() {

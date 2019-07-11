@@ -111,7 +111,9 @@ func testExcercise() {
 	incrementQualityTwice := func(i Item) Item { i.Quality = i.Quality + 2; return i }
 	incrementQualityOnce := func(i Item) Item { i.Quality = i.Quality + 1; return i }
 
-	item := itemQualityGreaterThanFifty(Item{})
+	var item Item
+
+	item = itemQualityGreaterThanFifty(Item{})
 	assertEquals("does nothing if item quality greater than fifty", item, item)
 
 	item = itemNameNotBackstage(itemQualityGreaterThanFifty(Item{}))

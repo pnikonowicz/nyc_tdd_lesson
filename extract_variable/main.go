@@ -117,7 +117,7 @@ func testExcercise() {
 	item = itemNameNotBackstage(itemQualityGreaterThanFifty(Item{}))
 	assertEquals("does nothing if not backstage",item,  item)
 
-	item = itemLargeSellIn(itemLargeSellIn(itemNameIsBackstage(itemQualityLessThanFifty(Item{}))))
+	item = itemLargeSellIn(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))
 	assertEquals("does nothing if backstage but sell in too large", item, item)
 
 	item = itemSellinEleven(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))

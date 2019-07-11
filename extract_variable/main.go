@@ -105,6 +105,7 @@ func testExcercise() {
 	itemNameIsBackstage := func(i Item) Item { i.Name = "backstage"; return i }
 	itemSellinLessThanSix := func(i Item) Item { i.SellIn = 2; return i }
 	itemSellinBetweenSixAndEleven := func(i Item) Item { i.SellIn = 8; return i }
+	itemSellinEleven := func(i Item) Item { i.SellIn = 11; return i }
 	itemLargeSellIn := func(i Item) Item { i.SellIn = 20; return i }
 	incrementQualityTwice := func(i Item) Item { i.Quality = i.Quality + 2; return i }
 	incrementQualityOnce := func(i Item) Item { i.Quality = i.Quality + 1; return i }
@@ -117,6 +118,9 @@ func testExcercise() {
 
 	item = itemLargeSellIn(itemLargeSellIn(itemNameIsBackstage(itemQualityLessThanFifty(Item{}))))
 	assertEquals("does nothing if backstage but sell in too large", item, item)
+
+	item = itemSellinEleven(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))
+	assertEquals("does nothing if item sellin is exactly 11", item, item)
 
 	item = itemSellinLessThanSix(itemNameIsBackstage(itemQualityLessThanFifty(Item{})))
 	assertEquals("increments quality twice", incrementQualityTwice(item), item)

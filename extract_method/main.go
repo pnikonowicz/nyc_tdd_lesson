@@ -86,7 +86,7 @@ func Excercise(elements []string, name string, amount int) string {
 
 	//print name
 	owingStr += "name:" + name + "\n"
-	
+
 	//print amount
 	owingStr += "amount:" + strconv.Itoa(amount) + "\n"
 

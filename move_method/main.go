@@ -1,53 +1,58 @@
+package main
+
+import "fmt"
+
 //Before
-type A struct {
+type BeforeA struct {
 }
 
-func (a A) funcA() string {
+type BeforeB struct {
+}
+
+func (a BeforeA) funcA() string {
   return "A" + a.funcB()
 }
 
-func (A) funcB() string {
+func (BeforeA) funcB() string {
   return "B"
 }
 
-struct B {
-}
-
 //After
-stuct A {
+type AfterA struct {
+  b AfterB
 }
 
-struct B {
+type AfterB struct {
 }
 
-func (a A) funcA() string {
-  b := B{}
-  return "A" + b.funcB()
+func (a AfterA) funcA() string {
+  return "A" + a.b.funcB()
 }
 
-func (B) funcB() string {
+func (AfterB) funcB() string {
   return "B"
 }
 
 
 //Excercise
-struct Excercise {
+type Excercise struct {
   charge int
   balance int
+  balanceService BalanceService
 }
 
-func (a A) methodA() string, err {
-  if(a.isOverdrawn()) {
-    return nil, fmt.Errorf("isOverdrawn")
+func (a Excercise) methodA() (string, error) {
+  if a.isOverdrawn() {
+    return "", fmt.Errorf("isOverdrawn")
   }
   return "Cash Money", nil
 }
 
-func (a A) isOverdrawn() bool {
+func (a Excercise) isOverdrawn() bool {
   overdrawn := a.charge > a.balance
   return overdrawn
 }
 
-type OverdrawnService struct {
+type BalanceService struct {
 
 }

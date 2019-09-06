@@ -1,29 +1,39 @@
+package main
+
 func Before(numberOfLateDeliveries int) int {
-    return moreThanFiveLateDeliveries(numberOfLateDeliveries) ? 2 : 1
+  if moreThanFiveLateDeliveries(numberOfLateDeliveries) {
+    return 2
+  } else {
+    return 1
+  }
 }
 
 func moreThanFiveLateDeliveries(numberOfLateDeliveries int) bool {
-  return numberOfLateDeliveries > 5;
+  return numberOfLateDeliveries > 5
 }
 
 func After(numberOfLateDeliveries int) int {
-    return (numberOfLateDeliveries > 5) ? 2 : 1
+  if numberOfLateDeliveries > 5 {
+    return 2
+  } else {
+    return 1
+  }
 }
 
 func Excercise(start int) int {
   CreateAdder := func() func(int,int) int {
-    return func(a,b) int {
+    return func(a,b int) int {
       return a+b
     }
   }
   
   addToTotal := func(a,b int) int {
-    adder = CreateAdder()
+    adder := CreateAdder()
     return adder(a,b)
   }
   
-  subtractFromTotal = func(a,b int) int{
-    adder = CreateAdder()
+  subtractFromTotal := func(a,b int) int{
+    adder := CreateAdder()
     return adder(a, b*-1)
   }
   

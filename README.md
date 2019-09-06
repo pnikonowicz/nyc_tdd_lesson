@@ -161,6 +161,9 @@ Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” 
 https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_1.JPG
 https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_2.JPG
 
+Read Extract method here:
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_method/IMG_5872.JPG
+
 Make sure your laptop has Go installed.The version will not matter for what we are going to be doing.
 
 You do not need an IDE, but you can use one. (no using refactoring tools please)

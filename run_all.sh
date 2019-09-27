@@ -17,9 +17,6 @@ blocklabel () {
 
 }
 
-blocklabel "Replace Parameter With Explict Methods"
-go run replace_parameter_with_explict_methods/main.go
-
 blocklabel "Inline Method"
 go run inline_method/main.go
 

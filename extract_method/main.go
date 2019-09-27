@@ -6,14 +6,14 @@ import (
 )
 
 func main() {
-	//test := func(testFunc func(int,string) string) {
-	//	assert("prints details with banner", "BANNER\nname:my_name\namount:123\n", testFunc(123, "my_name"))
-	//}
-    //
-	//fmt.Println("Before")
-	//test(Before)
-	//fmt.Println("After")
-	//test(After)
+	test := func(testFunc func(int,string) string) {
+		assert("prints details with banner", "BANNER\nname:my_name\namount:123\n", testFunc(123, "my_name"))
+	}
+
+	fmt.Println("Before")
+	test(Before)
+	fmt.Println("After")
+	test(After)
 	fmt.Println("Excercise")
 	testExcercise()
 }

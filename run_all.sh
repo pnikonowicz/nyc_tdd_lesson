@@ -17,21 +17,22 @@ blocklabel () {
 
 }
 
-blocklabel "Extract Variable"
-go run extract_variable/main.go
-
-blocklabel "Extract Method"
-go run extract_method/main.go
-
-blocklabel "Inline Method"
-go run inline_method/main.go
-
 blocklabel "Replace Parameter With Explict Methods"
 go run replace_parameter_with_explict_methods/main.go
 
 blocklabel "Parameterize Method"
 go run parameterize_method/main.go
 
+blocklabel "Inline Method"
+go run inline_method/main.go
+
+blocklabel "Extract Variable"
+go run extract_variable/main.go
+
+blocklabel "Extract Method"
+go run extract_method/main.go
+
 blocklabel "Move Method"
 go run move_method/main.go
+
 

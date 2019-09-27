@@ -26,10 +26,8 @@ go run extract_variable/main.go
 blocklabel "Extract Method"
 go run extract_method/main.go
 
-blocklabel "Parameterize Method"
-go run parameterize_method/main.go
-
 blocklabel "Move Method"
 go run move_method/main.go
 
-
+blocklabel "Parameterize Method"
+go run parameterize_method/main.go

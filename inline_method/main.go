@@ -41,6 +41,7 @@ func After(numberOfLateDeliveries int) int {
   }
 }
 
+//Excercise: inline everything. eventually will have a simple statement
 func Excercise(start int) int {
   CreateAdder := func() func(int,int) int {
     return func(a,b int) int {

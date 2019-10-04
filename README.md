@@ -143,6 +143,11 @@ https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/move_method/main.go
 
 In Student excercise, Talk about how there might be feature envy, how the overdraft function belongs in the service. 
 
+Parameterize Method: (p. 283)
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/parameterize_method/main.go
+
+Demonstrate how this goes both ways, sometimes adding a parameter and removing a parameter can bring better readability. 
+
 
 
 
@@ -164,7 +169,7 @@ https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extra
 Read Extract method here:
 https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_method/IMG_5872.JPG
 
-Make sure your laptop has Go installed.The version will not matter for what we are going to be doing.
+Make sure your laptop has Go installed. The version will not matter for what we are going to be doing.
 
 You do not need an IDE, but you can use one. (no using refactoring tools please)
 

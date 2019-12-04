@@ -22,8 +22,8 @@ func main() {
 }
 
 func Before(numberOfLateDeliveries int) int {
-  moreThanFiveLateDeliveries := func(numberOfLateDeliveries int) bool {
-    return numberOfLateDeliveries > 5
+  moreThanFiveLateDeliveries := func(x int) bool {
+    return x > 5
   }
 
   if moreThanFiveLateDeliveries(numberOfLateDeliveries) {

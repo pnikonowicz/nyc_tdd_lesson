@@ -24,16 +24,13 @@ func (a *BeforeA) funcB() string {
 
 //After
 type AfterA struct {
-  funcBStr string
-  b AfterB
 }
 
 type AfterB struct {
 }
 
 func (a *AfterA) funcA() string {
-  a.funcBStr="B"
-  return "A" + a.b.funcB(a.funcBStr)
+  return "A" + AfterB{}.funcB("B")
 }
 
 func (AfterB) funcB(s string) string {

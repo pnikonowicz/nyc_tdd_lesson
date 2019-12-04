@@ -11,11 +11,11 @@ func main() {
 
 	fmt.Println("BEFORE")
 	{
-		structUnderTest := Begin{salary: 10}
+		structUnderTest := Before{salary: 10}
 		structUnderTest.tenPercentRaise()
 		assert("tenPercentRaise", 11, structUnderTest.salary)
 
-		structUnderTest = Begin{salary: 10}
+		structUnderTest = Before{salary: 10}
 		structUnderTest.fivePercentRaise()
 		assert("fivePercentRaise", 10.5, structUnderTest.salary)
 	}
@@ -74,15 +74,15 @@ func ExampleRefactored(lastUsage int) int {
 	return lastUsage
 }
 
-type Begin struct {
+type Before struct {
 	salary float32
 }
 
-func (b *Begin) tenPercentRaise() {
+func (b *Before) tenPercentRaise() {
 	b.salary*=1.1
 }
 
-func (b *Begin) fivePercentRaise() {
+func (b *Before) fivePercentRaise() {
 	b.salary*=1.05
 }
 

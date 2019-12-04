@@ -39,9 +39,9 @@ func main() {
 			}
 		}
 
-		assertExample("when less than 10", 0, Example(0))
-		assertExample("when greater than 10", 11, Example(10))
-		assertExample("when greater than 100", 111, Example(100))
+		assertExample("when less than 10", 0, (&Example{lastUsage:0}).increment())
+		assertExample("when greater than 10", 11, (&Example{lastUsage:10}).increment())
+		assertExample("when greater than 100", 111, (&Example{lastUsage:100}).increment())
 
 		assertExample("ExampleRefactored when less than 10", 0, ExampleRefactored(0))
 		assertExample("ExampleRefactored when greater than 10", 11, ExampleRefactored(10))
@@ -49,7 +49,23 @@ func main() {
 	}
 }
 
-func Example(lastUsage int) int {
+type Example struct {
+	lastUsage int
+}
+
+func (e *Example) increment() int {
+	if e.lastUsage >= 10 {
+		e.lastUsage += 1
+	}
+
+	if e.lastUsage >= 100 {
+		e.lastUsage += 10
+	}
+
+	return e.lastUsage
+}
+
+func ExampleRefactored(lastUsage int) int {
 	if lastUsage >= 10 {
 		lastUsage += 1
 	}
@@ -57,19 +73,6 @@ func Example(lastUsage int) int {
 	if lastUsage >= 100 {
 		lastUsage += 10
 	}
-
-	return lastUsage
-}
-
-func ExampleRefactored(lastUsage int) int {
-	conditionalAdd := func(cond int, amount int) {
-		if lastUsage >= cond {
-			lastUsage += amount
-		}
-	}
-
-	conditionalAdd(10, 1)
-	conditionalAdd(100, 10)
 
 	return lastUsage
 }

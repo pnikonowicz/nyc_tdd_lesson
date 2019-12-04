@@ -94,11 +94,8 @@ Techniques: (4 hours)
 Extract variable (do this one first because it is very easy)
 Inline Method
 Extract method
-Extract struct
+Parameterize method
 Move method
-Extract Interface
-Add parameter
-Remove parameter
 (Additional examples from book)
 
 Using techniques (2-4 hours)
@@ -137,16 +134,12 @@ https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/inline_method/main.go
 
 In Student excercise, pay attention to subtractFromTotal. Point out that it is coupled to AddToTotal and cannot be moved withouth moving add to total. 
 
+Parameterize Method: (p. 283)
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/parameterize_method/main.go
 
 Move Function: (p 117)
 https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/move_method/main.go
 
-In Student excercise, Talk about how there might be feature envy, how the overdraft function belongs in the service. 
-
-Parameterize Method: (p. 283)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/parameterize_method/main.go
-
-Demonstrate how this goes both ways, sometimes adding a parameter and removing a parameter can bring better readability. 
 
 
 

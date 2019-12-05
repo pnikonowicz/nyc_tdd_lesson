@@ -49,6 +49,27 @@ func main() {
 	}
 }
 
+type Before struct {
+	salary float32
+}
+
+func (b *Before) tenPercentRaise() {
+	b.salary*=1.1
+}
+
+func (b *Before) fivePercentRaise() {
+	b.salary*=1.05
+}
+
+type After struct {
+	salary float32
+}
+
+func (a *After) raise(factor float32) {
+	a.salary *= factor
+}
+
+
 type Example struct {
 	lastUsage int
 }
@@ -75,24 +96,4 @@ func ExampleRefactored(lastUsage int) int {
 	}
 
 	return lastUsage
-}
-
-type Before struct {
-	salary float32
-}
-
-func (b *Before) tenPercentRaise() {
-	b.salary*=1.1
-}
-
-func (b *Before) fivePercentRaise() {
-	b.salary*=1.05
-}
-
-type After struct {
-	salary float32
-}
-
-func (a *After) raise(factor float32) {
-	a.salary *= factor
 }

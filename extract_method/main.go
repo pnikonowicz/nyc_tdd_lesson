@@ -47,22 +47,22 @@ func After(amount int, name string) string {
 	printBanner := func() string{
 		return "BANNER\n"
 	}
-	printDetails := func(amount int, name string) string {
-		details := ""
-		details += "name:" + name + "\n"
-		details += "amount:" + strconv.Itoa(amount) + "\n"
-		return details
-	}
 	banner := printBanner()
-	details := printDetails(amount, name)
 
-	return banner + details
+	printDetails := func() {
+		banner += "name:" + name + "\n"
+		banner += "amount:" + strconv.Itoa(amount) + "\n"
+	}
+
+	printDetails()
+
+	return banner
 }
 
 func Excercise(elements []string, name string, amount int) string {
-	owingStr := ""
 	total := 0
 	outstandingStr := ""
+	owingStr := ""
 
 	//calculate outstanding
 	for _, element := range elements {

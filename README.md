@@ -68,7 +68,7 @@ Talk about testing frameworks. How many have everyone used. What are common func
 ## What do we really need in a testing framework?
   A function, maybe a print statement
 
-Have students write Assert for equality
+Have students write Assert for equality and test https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/begin_here/main.go
 Explain this is probably all we will need, but feel free to develop the tools that will help you go faster ™ 
 Try not to be strict here. 
 

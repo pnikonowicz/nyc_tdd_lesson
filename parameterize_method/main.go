@@ -75,11 +75,15 @@ type Example struct {
 }
 
 func (e *Example) increment() int {
-	if e.lastUsage >= 10 {
+	lastUsageAbove := func(x int) bool {
+		return e.lastUsage >= x
+	}
+
+	if lastUsageAbove(10) {
 		e.lastUsage += 1
 	}
 
-	if e.lastUsage >= 100 {
+	if lastUsageAbove(100) {
 		e.lastUsage += 10
 	}
 

@@ -93,8 +93,8 @@ Refactor using the technique.
 Techniques: (4 hours) 
 Rename Variable (do this one first because it is very easy)
 Extract variable 
-Inline Method
 Extract method
+Inline Method
 Parameterize method
 Move method
 (Additional examples from book)

@@ -91,7 +91,8 @@ Comment code and ensure tests fail
 Refactor using the technique. 
 
 Techniques: (4 hours) 
-Extract variable (do this one first because it is very easy)
+Rename Variable (do this one first because it is very easy)
+Extract variable 
 Inline Method
 Extract method
 Parameterize method
@@ -122,6 +123,9 @@ of ownership and therefore no hurt feelings. (hopefully)
 
 
 # Techniques
+
+Rename Variable 
+https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/rename_variable/main.go
 
 Extract Variable: (p 124)
 https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/main.go

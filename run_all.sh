@@ -17,6 +17,9 @@ blocklabel () {
 
 }
 
+blocklabel "Rename Variable"
+go run rename_variable/main.go
+
 blocklabel "Inline Method"
 go run inline_method/main.go
 

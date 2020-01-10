@@ -10,16 +10,16 @@ func assert(description string, expected string, actual string) {
 
 //Before
 type BeforeA struct {
-  funcBStr string
+  bString string
 }
 
-func (a *BeforeA) funcA() string {
-  a.funcBStr="B"
-  return "A" + a.funcB()
+func (a *BeforeA) PrintString() string {
+  a.bString="B"
+  return "A" + a.printB()
 }
 
-func (a *BeforeA) funcB() string {
-  return a.funcBStr
+func (a *BeforeA) printB() string {
+  return a.bString
 }
 
 //After
@@ -29,26 +29,26 @@ type AfterA struct {
 type AfterB struct {
 }
 
-func (a *AfterA) funcA() string {
-  return "A" + AfterB{}.funcB("B")
+func (a *AfterA) PrintString() string {
+  return "A" + AfterB{}.printB("B")
 }
 
-func (AfterB) funcB(s string) string {
+func (AfterB) printB(s string) string {
   return s
 }
 
 func main() {
   fmt.Println("Before")
-  assert("a returns a + b", "AB", (&BeforeA{}).funcA())
-  assert("b returns b", "B", (&BeforeA{funcBStr:"B"}).funcB())
+  assert("a returns a + b", "AB", (&BeforeA{}).PrintString())
+  assert("b returns b", "B", (&BeforeA{bString:"B"}).printB())
 
   fmt.Println("After")
-  assert("a returns a + b", "AB", (&AfterA{}).funcA())
-  assert("b returns b", "B", (&AfterB{}).funcB("B"))
+  assert("a returns a + b", "AB", (&AfterA{}).PrintString())
+  assert("b returns b", "B", (&AfterB{}).printB("B"))
 
   fmt.Println("Excercise")
   assertExcercise := func(description string, expectedString string, expectedError error, excercise Excercise) {
-    actualString, actualError := excercise.methodA()
+    actualString, actualError := excercise.GetMoney()
 
     if expectedString != actualString {
       panic(fmt.Sprintf("%s\nExpectedString:\n[%v]\nbut was:\n[%v]", description, expectedString, actualString))
@@ -76,7 +76,7 @@ type Excercise struct {
   balanceService BalanceService
 }
 
-func (a Excercise) methodA() (string, error) {
+func (a Excercise) GetMoney() (string, error) {
   if a.isOverdrawn() {
     return "", fmt.Errorf("isOverdrawn")
   }

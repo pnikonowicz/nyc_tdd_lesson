@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-func X() string {
-	return "A"
+func Example() string {
+	return "Hello Planet"
 }
 
 func main() {
-	fmt.Printf(X())
+	fmt.Println(Example())
 }

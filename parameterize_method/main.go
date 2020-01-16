@@ -23,12 +23,11 @@ func main() {
 	fmt.Println("AFTER")
 	{
 		structUnderTest := After{salary: 10}
-		structUnderTest.raise(1.1)
+		structUnderTest.tenPercentRaise()
 		assert("tenPercentRaise", 11, structUnderTest.salary)
 
 		structUnderTest = After{salary: 10}
-		structUnderTest.raise(1.05)
-		assert("fivePercentRaise", 10.5, structUnderTest.salary)
+		structUnderTest.fivePercentRaise()
 	}
 
 	fmt.Println("EXAMPLE")
@@ -69,6 +68,13 @@ func (a *After) raise(factor float32) {
 	a.salary *= factor
 }
 
+func (a *After) tenPercentRaise() {
+	a.raise(1.1)
+}
+
+func (a *After) fivePercentRaise() {
+	a.raise(1.05)
+}
 
 type Example struct {
 	lastUsage int

@@ -38,13 +38,13 @@ func main() {
 			}
 		}
 
-		assertExample("when less than 10", 0, (&Example{lastUsage:0}).increment())
-		assertExample("when greater than 10", 11, (&Example{lastUsage:10}).increment())
-		assertExample("when greater than 100", 111, (&Example{lastUsage:100}).increment())
+		assertExample("when less than 10", 0, (&Example{lastUsage:0}).Example())
+		assertExample("when greater than 10", 11, (&Example{lastUsage:10}).Example())
+		assertExample("when greater than 100", 111, (&Example{lastUsage:100}).Example())
 
-		assertExample("ExampleRefactored when less than 10", 0, ExampleRefactored(0))
-		assertExample("ExampleRefactored when greater than 10", 11, ExampleRefactored(10))
-		assertExample("ExampleRefactored when greater than 100", 111, ExampleRefactored(100))
+		assertExample("when less than 10", 0, (&Example{lastUsage:0}).ExampleRefactored())
+		assertExample("when greater than 10", 11, (&Example{lastUsage:10}).ExampleRefactored())
+		assertExample("when greater than 100", 111, (&Example{lastUsage:100}).ExampleRefactored())
 	}
 }
 
@@ -80,30 +80,37 @@ type Example struct {
 	lastUsage int
 }
 
-func (e *Example) increment() int {
-	lastUsageAbove := func(x int) bool {
-		return e.lastUsage >= x
+func (e *Example) Example() int {
+	currentUsage := -1
+	lastUsageAbove := func() bool {
+		return e.lastUsage >= currentUsage
 	}
 
-	if lastUsageAbove(10) {
+	currentUsage = 10
+	if lastUsageAbove() {
 		e.lastUsage += 1
 	}
 
-	if lastUsageAbove(100) {
+	currentUsage = 100
+	if lastUsageAbove() {
 		e.lastUsage += 10
 	}
 
 	return e.lastUsage
 }
 
-func ExampleRefactored(lastUsage int) int {
-	if lastUsage >= 10 {
-		lastUsage += 1
+func (e *Example) ExampleRefactored() int {
+	isGreaterThanOrEqual := func(currentUsage int) bool {
+		return e.lastUsage >= currentUsage
 	}
 
-	if lastUsage >= 100 {
-		lastUsage += 10
+	if isGreaterThanOrEqual(10) {
+		e.lastUsage += 1
 	}
 
-	return lastUsage
+	if isGreaterThanOrEqual(100) {
+		e.lastUsage += 10
+	}
+
+	return e.lastUsage
 }

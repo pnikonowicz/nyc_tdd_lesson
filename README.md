@@ -68,7 +68,7 @@ Talk about testing frameworks. How many have everyone used. What are common func
 ## What do we really need in a testing framework?
   A function, maybe a print statement
 
-Have students write Assert for equality and test https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/begin_here/main.go
+Have students write Assert for equality and test https://github.com/pnikonowicz/refactoring_in_go/blob/master/begin_here/main.go
 Explain this is probably all we will need, but feel free to develop the tools that will help you go faster ™ 
 Try not to be strict here. 
 
@@ -125,24 +125,24 @@ of ownership and therefore no hurt feelings. (hopefully)
 # Techniques
 
 Rename Variable 
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/rename_variable/main.go
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/rename_variable/main.go
 
 Extract Variable: (p 124)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/main.go
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/extract_variable/main.go
 
 Extract Method: (p 110)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_method/main.go
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/extract_method/main.go
 
 Inline Function: (p 117)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/inline_method/main.go
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/inline_method/main.go
 
 In Student excercise, pay attention to subtractFromTotal. Point out that it is coupled to AddToTotal and cannot be moved withouth moving add to total. 
 
 Parameterize Method: (p. 283)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/parameterize_method/main.go
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/parameterize_method/main.go
 
 Move Function: (p 117)
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/move_method/main.go
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/move_method/main.go
 
 
 
@@ -160,11 +160,11 @@ In order to get the most out of this course, please do not use any IDE refactori
 There are a couple things that you should check out before showing up.
 
 Read the Introduce Explaining Variable from Martin Fowler’s “Refactoring” links here:
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_1.JPG
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_variable/extract_variable_2.JPG
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/extract_variable/extract_variable_1.JPG
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/extract_variable/extract_variable_2.JPG
 
 Read Extract method here:
-https://github.com/pnikonowicz/nyc_tdd_lesson/blob/master/extract_method/IMG_5872.JPG
+https://github.com/pnikonowicz/refactoring_in_go/blob/master/extract_method/IMG_5872.JPG
 
 Make sure your laptop has Go installed. The version will not matter for what we are going to be doing.
 
